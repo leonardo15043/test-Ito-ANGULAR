@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+
+<mat-dialog-content>
+    <form novalidate [formGroup]="form" (ngSubmit)="save()">
+        <input type="email" formControlName="email" placeholder="Email">
+        <input type="text" formControlName="user" placeholder="Usuario">
+        <input type="text" formControlName="name" placeholder="Nombre">
+        <input type="text" formControlName="surnames" placeholder="Apellidos">
+        <div  *ngIf="data.type == 'edit'" >Activo<input type="checkbox"  formControlName="state"></div>
+        <button mat-button color="primary" type="submit" *ngIf="data.type != 'view'">Guardar</button>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+</mat-dialog-actions>
